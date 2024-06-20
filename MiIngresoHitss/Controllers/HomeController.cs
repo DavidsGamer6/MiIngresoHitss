@@ -77,8 +77,7 @@ namespace MiIngresoHitss.Presentation.Controllers
             {
                 return RedirectToAction("Index");
             }
-
-            // Aquí puedes implementar la lógica para guardar la compra en la base de datos.
+            // implementamos la lógica para guardar la compra en la base de datos.
             // Por simplicidad, aquí solo vamos a limpiar el carrito.
             LimpiarCarritoDeCompras();
 
