@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilIngresoHitss.Data", "Mil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilIngresoHitss.Entities", "MilIngresoHitss.Entities\MilIngresoHitss.Entities.csproj", "{A7AA6092-05BD-4828-AA02-137E62EAAAD3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa Presentación", "Capa Presentación", "{9D70DF3A-11D1-4F12-91FA-C6934BAC654D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa de Servicios", "Capa de Servicios", "{F11028EF-6AEC-4713-BB9F-BE7D04114A4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa de Negocio", "Capa de Negocio", "{D20968E0-1C43-4612-A37B-A1185B7744A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa de Datos", "Capa de Datos", "{EC505487-50D9-4FDD-AE26-1D99CACC2251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa de Entidades", "Capa de Entidades", "{0182523E-1430-401A-B5B1-6A59EF48A738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +52,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AD9C8A7-044A-43F1-B7F7-3CD07DF9920F} = {9D70DF3A-11D1-4F12-91FA-C6934BAC654D}
+		{EDE3FCE6-B63B-4F87-A947-0AD4874519C3} = {F11028EF-6AEC-4713-BB9F-BE7D04114A4E}
+		{00B832CC-3962-42E8-9BE7-63028E16DBC3} = {D20968E0-1C43-4612-A37B-A1185B7744A7}
+		{1EC01B01-296E-4338-8ECE-AC934D7FD116} = {EC505487-50D9-4FDD-AE26-1D99CACC2251}
+		{A7AA6092-05BD-4828-AA02-137E62EAAAD3} = {0182523E-1430-401A-B5B1-6A59EF48A738}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1B0E496-8149-42C4-8FA3-594FDF9C0EAE}
