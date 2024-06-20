@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MiIngresoHitss.Entities.Venta>
+
+<h1>Reporte de Ventas</h1>
+
+<form asp-action="Reporte" method="post">
+    <div class="form-group">
+        <label for="fechaInicio">Fecha Inicio</label>
+        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required />
+    </div>
+    <div class="form-group">
+        <label for="fechaFin">Fecha Fin</label>
+        <input type="date" class="form-control" id="fechaFin" name="fechaFin" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Generar Reporte</button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in Model)
+            {
+                <tr>
+                    <td>@venta.Fecha</td>
+                    <td>@venta.Cliente.Nombre</td>
+                    <td>@venta.DetallesVenta.First().Producto.Nombre</td>
+                    <td>@venta.DetallesVenta.First().Cantidad</td>
+                    <td>@venta.DetallesVenta.First().Precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
