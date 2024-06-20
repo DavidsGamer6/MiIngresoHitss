@@ -1,0 +1,11 @@
+﻿@model MiIngresoHitss.Entities.Producto
+
+<h1>@Model.Nombre</h1>
+<p>@Model.Descripcion</p>
+<p>Precio: @Model.Precio</p>
+<p>Stock: @Model.Stock</p>
+<form asp-action="AgregarAlCarrito" method="post">
+    <input type="hidden" name="productoId" value="@Model.ProductoId" />
+    <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
+</form>
+<a href="@Url.Action("Index")" class="btn btn-primary">Volver a la lista</a>

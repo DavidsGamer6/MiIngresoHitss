@@ -21,11 +21,18 @@
                 <td>@item.Stock</td>
                 <td>
                     <a href="@Url.Action("Details", new { id = item.ProductoId })">Detalles</a> |
-                    <a href="@Url.Action("Edit", new { id = item.ProductoId })">Editar</a> |
-                    <a href="@Url.Action("Delete", new { id = item.ProductoId })">Eliminar</a>
+                    <form asp-action="AgregarAlCarrito" method="post" style="display:inline;">
+                        <input type="hidden" name="productoId" value="@item.ProductoId" />
+                        <button type="submit" class="btn btn-link">Agregar al Carrito</button>
+                        <a href="@Url.Action("Details", new { id = item.ProductoId })">Detalles</a> |
+                        <a href="@Url.Action("Edit", new { id = item.ProductoId })">Editar</a> |
+                        <a href="@Url.Action("Delete", new { id = item.ProductoId })">Eliminar</a>
+                    </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <a href="@Url.Action("Create")">Crear nuevo producto</a>
+<a href="@Url.Action("VerCarrito")" class="btn btn-primary">Ver Carrito</a>
+<a href="@Url.Action("Create")" class="btn btn-primary">Crear nuevo producto</a>

@@ -154,6 +154,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClasedeExtensiones.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,6 +217,9 @@
     <Content Include="Views\Productos\Create.cshtml" />
     <Content Include="Views\Productos\Layout.cshtml" />
     <Content Include="Views\Productos\Reporte.cshtml" />
+    <Content Include="Views\Productos\VerCarrito.cshtml" />
+    <Content Include="Views\Productos\CompraFinalizada.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

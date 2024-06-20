@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiIngresoHitss.Business;
 using MiIngresoHitss.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -30,6 +31,85 @@ namespace MiIngresoHitss.Presentation.Controllers
             }
             return (IActionResult)View(producto);
         }
+
+        [HttpPost]
+        public IActionResult AgregarAlCarrito(int productoId)
+        {
+            var producto = _productoService.GetProductoById(productoId);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
+            var carrito = ObtenerCarritoDeCompras();
+            var item = carrito.FirstOrDefault(c => c.ProductoId == productoId);
+
+            if (item == null)
+            {
+                carrito.Add(new CarritoItem
+                {
+                    ProductoId = producto.ProductoId,
+                    Nombre = producto.Nombre,
+                    Precio = producto.Precio,
+                    Cantidad = 1
+                });
+            }
+            else
+            {
+                item.Cantidad++;
+            }
+
+            GuardarCarritoDeCompras(carrito);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult VerCarrito()
+        {
+            var carrito = ObtenerCarritoDeCompras();
+            return View(carrito);
+        }
+
+        [HttpPost]
+        public IActionResult FinalizarCompra()
+        {
+            var carrito = ObtenerCarritoDeCompras();
+            if (carrito.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            // Aquí puedes implementar la lógica para guardar la compra en la base de datos.
+            // Por simplicidad, aquí solo vamos a limpiar el carrito.
+            LimpiarCarritoDeCompras();
+
+            return RedirectToAction("CompraFinalizada");
+        }
+
+        public IActionResult CompraFinalizada()
+        {
+            return View();
+        }
+
+        private List<CarritoItem> ObtenerCarritoDeCompras()
+        {
+            var carrito = HttpContext.Session.GetObjectFromJson<List<CarritoItem>>("CarritoDeCompras");
+            if (carrito == null)
+            {
+                carrito = new List<CarritoItem>();
+            }
+            return carrito;
+        }
+
+        private void GuardarCarritoDeCompras(List<CarritoItem> carrito)
+        {
+            HttpContext.Session.SetObjectAsJson("CarritoDeCompras", carrito);
+        }
+
+        private void LimpiarCarritoDeCompras()
+        {
+            HttpContext.Session.Remove("CarritoDeCompras");
+        }
+
 
         public IActionResult Create()
         {
